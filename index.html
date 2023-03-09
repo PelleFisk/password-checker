@@ -12,11 +12,11 @@
             id="myPassword">
             <div class="show"></div>
         </div>
-        <div class="strenthMeter"></div>
+        <div class="strengthMeter"></div>
     </div>
 
     <script>
-        function strength(password){
+        function Strength(password){
             let i = 0;
             if(password.length > 6){
                 i++;
@@ -41,8 +41,20 @@
             let password = document.querySelector
             ('#myPassword').value;
 
-            let strength = strength(password);
-            
+            let strength = Strength(password);
+            if(strength <= 2){
+                container.classList.add('weak');
+                container.classList.remove('medium');
+                container.classList.remove('strong');
+            } else if(strength >= 2 && strength <= 4){
+                container.classList.remove('weak');
+                container.classList.add('medium');
+                container.classList.remove('strong');
+            } else {
+                container.classList.remove('weak');
+                container.classList.remove('medium');
+                container.classList.add('strong');
+            }
         })
 
 
